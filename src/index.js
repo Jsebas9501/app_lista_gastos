@@ -13,6 +13,7 @@ import { Helmet } from "react-helmet";
 import favicon from "./img/logo.png";
 import Fondo from "./resource/Fondo";
 import { AuthProvider } from "./context/AuthContext";
+import RutaPrivada from './resource/RutaPrivada';
 
 const Index = () => {
   return (
@@ -28,10 +29,26 @@ const Index = () => {
             <Switch>
               <Route path="/iniciar-sesion" component={IncioSesion} />
               <Route path="/crear-cuenta" component={RegistroUsuarios} />
-              <Route path="/categorias" component={GastosPorCategoria} />
+
+              <RutaPrivada path='/categorias'>
+                <GastosPorCategoria/>
+              </RutaPrivada>
+              <RutaPrivada path='/lista'>
+                <ListaDeGastos/>
+              </RutaPrivada>
+              <RutaPrivada path='/editar/:id'>
+                <EditarGasto/>
+              </RutaPrivada>
+              <RutaPrivada path='/'>
+                <App/>
+              </RutaPrivada>
+
+
+
+              {/* <Route path="/categorias" component={GastosPorCategoria} />
               <Route path="/lista" component={ListaDeGastos} />
               <Route path="/editar/:id" component={EditarGasto} />
-              <Route path="/" component={App} />
+              <Route path="/" component={App} /> */}
             </Switch>
           </Contenedor>
         </BrowserRouter>
