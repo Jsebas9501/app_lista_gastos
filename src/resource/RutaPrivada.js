@@ -4,7 +4,6 @@ import { Route, Redirect } from "react-router-dom";
 
 const RutaProtegida = ({ children, ...restoDePropiedades }) => {
   const { usuario } = useAuth();
-  console.log(usuario);
   if (usuario) {
     return <Route {...restoDePropiedades}>{children}</Route>;
   } else {
