@@ -8,6 +8,7 @@ import {
 } from "./resource/Header";
 import { Boton } from "./resource/Boton";
 import BotonCerrarSesion from './resource/BotonCerrarSesion';
+import FormularioGasto from './components/FormularioGasto'
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           </ContenedorBotones>
         </ContenedorHeader>
       </Header>
+      <FormularioGasto/>
     </>
   );
 };
