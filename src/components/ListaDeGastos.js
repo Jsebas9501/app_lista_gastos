@@ -8,8 +8,6 @@ import useObtenerGastos from "./../hooks/useObtenerGastos";
 import {
   Lista,
   ElementoLista,
-  ListaDeCategorias,
-  ElementoListaCategorias,
   Categoria,
   Descripcion,
   Valor,
@@ -29,9 +27,10 @@ import { Link } from "react-router-dom";
 import { Boton } from "../resource/Boton";
 import { format, fromUnixTime } from "date-fns";
 import { es } from "date-fns/locale";
+import borrarGasto from "./../firebase/borrarGasto";
 
 const ListaDeGastos = () => {
-  const [gastos] = useObtenerGastos();
+  const [gastos, obtenerMasGastos, hayMasPorCargar] = useObtenerGastos();
   //console.log(gastos);
 
   const formatearFecha = (fecha) => {
@@ -74,7 +73,7 @@ const ListaDeGastos = () => {
 
               <ElementoLista key={gasto.id}>
                 <Categoria>
-                  {/* <IconoCategoria id={gasto.categoria}/> */}
+                  <IconoCategoria nombre={gasto.categoria} />
                   {gasto.categoria}
                 </Categoria>
 
@@ -85,7 +84,7 @@ const ListaDeGastos = () => {
                   <BotonAccion as={Link} to={`/editar/${gasto.id}`}>
                     <IconoEditar />
                   </BotonAccion>
-                  <BotonAccion>
+                  <BotonAccion onClick={() => borrarGasto(gasto.id)}>
                     <IconoBorrar />
                   </BotonAccion>
                 </ContenedorBotones>
@@ -94,9 +93,17 @@ const ListaDeGastos = () => {
           );
         })}
 
-        <ContenedorBotonCentral>
-          <BotonCargarMas>Cargar Más</BotonCargarMas>
-        </ContenedorBotonCentral>
+        {hayMasPorCargar && (
+          <ContenedorBotonCentral>
+            <BotonCargarMas
+              onClick={() => {
+                obtenerMasGastos();
+              }}
+            >
+              Cargar Más
+            </BotonCargarMas>
+          </ContenedorBotonCentral>
+        )}
 
         {gastos.length === 0 && (
           <ContenedorSubtitulo>

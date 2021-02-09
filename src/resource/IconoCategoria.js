@@ -14,7 +14,7 @@ const IconoCategoria = ({ nombre }) => {
       return <IconoComida />;
     case "compras":
       return <IconoCompras />;
-    case "cuentas_y_pagos":
+    case "cuentas y pagos":
       return <IconoCuentasYPagos />;
     case "diversion":
       return <IconoDiversion />;
@@ -22,7 +22,7 @@ const IconoCategoria = ({ nombre }) => {
       return <IconoHogar />;
     case "ropa":
       return <IconoRopa />;
-    case "salud_e_higiene":
+    case "salud e higiene":
       return <IconoSaludEHigiene />;
     case "transporte":
       return <IconoTransporte />;
