@@ -40,7 +40,7 @@ const FormularioGasto = () => {
     //Agregar dos decimales al valor
     let valor = parseFloat(inputValor).toFixed(2);
 
-    console.log(categoria, inputDescripcion, valor, getUnixTime(fecha), usuario.uid );
+    //console.log(categoria, inputDescripcion, valor, getUnixTime(fecha), usuario.uid );
 
     //Comprobamos que haya una descripcion y valor
     if (inputDescripcion !== "" && inputValor !== "") {

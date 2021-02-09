@@ -9,6 +9,7 @@ import {
 import { Boton } from "./resource/Boton";
 import BotonCerrarSesion from './resource/BotonCerrarSesion';
 import FormularioGasto from './components/FormularioGasto'
+import BarraTotalGastos from './components/BarraTotalGastos'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         </ContenedorHeader>
       </Header>
       <FormularioGasto/>
+      <BarraTotalGastos/>
     </>
   );
 };
